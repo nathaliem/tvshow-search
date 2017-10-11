@@ -38,11 +38,19 @@ class App extends Component {
   }
 
   getShowInformation() {
-    const id = this.state.selectedShowId;
-    fetch('https://api.tvmaze.com/lookup/shows?thetvdb=' + id).then(response => response.json())
-            .then(data => {
-              this.setState({selectedShowInfo: data});
-            });
+    const $this = this;
+    const id = $this.state.selectedShowId;
+    const url = 'https://api.tvmaze.com/';
+    fetch(url + 'lookup/shows?thetvdb=' + id).then(function(response) {
+        const response_url = $this.convertToHttps(response.url);
+        return fetch(response_url);
+      }).then(function(response){
+        return response.json();
+      }).then(data => {
+        this.setState({
+          selectedShowInfo: data
+        })
+      });
   }
 
   getSelectedShowSummaryAsHTML() {
