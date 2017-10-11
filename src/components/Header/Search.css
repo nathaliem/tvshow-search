@@ -7,6 +7,7 @@ input[type="search"] {
     border: 1px solid #000;
     width: 50%;
     font-weight: bold;
+    font-family: "Fira Sans", "Helvetica Neue", sans-serif;
 }
 
 .show--item {
@@ -26,6 +27,7 @@ input[type="search"] {
     width: 100%;
     height: 100%;
     z-index: 1;
+    text-indent: -100%;
 }
 
 .show--item img,
@@ -53,6 +55,7 @@ input[type="search"] {
     overflow-y: scroll;
     background-color: #fff;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 .list-of-shows.show {

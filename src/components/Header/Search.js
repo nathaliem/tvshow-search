@@ -19,7 +19,6 @@ class Search extends Component {
         fetch('http://api.tvmaze.com/search/shows?q=' + keywords).then(response => response.json())
             .then(data => {
                 this.setState({shows: data});
-                console.log(data);
             });
     }
 
@@ -35,12 +34,12 @@ class Search extends Component {
         e.preventDefault();
         this.props.updateSelectedShow(id);
         this.hideListOfShows();
-        console.log(id);
     }
 
     onBlur(e) {
-        console.log(e.target);
-        console.log(e.target.value);
+        /**
+         * @TODO: Hide Shows dropdown when clicking outside the search field
+         */
     }
 
     showListOfShows() {
@@ -56,7 +55,7 @@ class Search extends Component {
             return item.show.image && item.show.externals.thetvdb;
         }).map((item, i) => (
             <div className="show--item" key={item.show.id}>
-                <a href="#" onClick={this.onSelect.bind(this, item.show.externals.thetvdb)}></a>
+                <a href="#" onClick={this.onSelect.bind(this, item.show.externals.thetvdb)}><span>Click</span></a>
                 <img src={ item.show.image.medium } alt={ item.show.name } />
                 <span>{ item.show.name }</span>
             </div>

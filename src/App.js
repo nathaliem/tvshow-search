@@ -58,7 +58,6 @@ class App extends Component {
   render() {
     let main_content, poster, rating, customStyling = null;
     if ( this.state.selectedShowInfo ) {
-      let summary = this.state.selectedShowInfo.summary;
       if ( this.state.selectedShowInfo.image.medium ) {
         poster = <Poster selectedShowImage={this.state.selectedShowInfo.image.medium} selectedShowName={this.state.selectedShowInfo.name} />
       }
@@ -72,8 +71,8 @@ class App extends Component {
             { rating }
           </aside>
           <article>
+          <div className="summary" dangerouslySetInnerHTML={this.getSelectedShowSummaryAsHTML()}></div>
             <Info selectedShowInfo={this.state.selectedShowInfo} />
-             <div className="summary" dangerouslySetInnerHTML={this.getSelectedShowSummaryAsHTML()}></div>
           </article>
         </main>;
     }

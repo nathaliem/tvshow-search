@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './Info.css';
 
 class Info extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const info_obj = this.props.selectedShowInfo;
@@ -16,7 +13,7 @@ class Info extends Component {
         }
         if ( info_obj.network ) {
             network = (
-                <li>{info_obj.network.name}</li>
+                <li><h2>Network</h2>{info_obj.network.name}</li>
             );
         }
         if ( info_obj.officialSite ) {
@@ -26,29 +23,36 @@ class Info extends Component {
         }
         if ( info_obj.premiered ) {
             premiered = (
-                <li>{info_obj.premiered}</li>
+                <li><h2>Premiere date</h2>{info_obj.premiered}</li>
             );
         }
         if ( info_obj.runtime ) {
             runtime = (
-                <li>{info_obj.runtime}</li>
+                <li><h2>Runtime</h2>{info_obj.runtime} minutes</li>
             );
         }
         if ( info_obj.status ) {
             status = (
-                <li>{info_obj.status}</li>
+                <li><h2>Status</h2>{info_obj.status}</li>
             );
         }
 
         return (
             <div className="info">
                 <ul>
-                    <ul className="genres">{genres}</ul>
+                    {genres.length > 0 &&
+                        <ul className="genres">
+                            <h2>Genres</h2>
+                            {genres}
+                        </ul>
+                    }
+                    <div className="various-info">
                     {network}
-                    {officialSite}
                     {premiered}
                     {runtime}
                     {status}
+                    {officialSite}
+                    </div>
                 </ul>
             </div>
         )

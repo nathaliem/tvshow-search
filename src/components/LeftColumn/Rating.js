@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import './Rating.css';
 
 class Rating extends Component {
     render() {
-        console.log(this.props);
         return (
             <div className="rating">
                 <span>{ this.props.selectedShowRating }</span> / 10

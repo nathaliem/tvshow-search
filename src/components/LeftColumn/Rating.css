@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+.rating {
+    font-family: "Playfair Display", "Fira Code", sans-serif;
+    font-size: 1.2em;
+}
+
+.rating span {
+    color: #FFCE2F;
+    font-weight: 900;
+}
