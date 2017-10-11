@@ -51,10 +51,6 @@ class App extends Component {
     }
   }
 
-  onBlur(e) {
-    console.log(e.target);
-  }
-
   render() {
     let main_content, poster, rating, customStyling = null;
     if ( this.state.selectedShowInfo ) {
@@ -82,10 +78,9 @@ class App extends Component {
         backgroundSize: 'cover',
         backgroundPosition: 'center center'
       }
-      console.log(this.state.selectedShowInfo.image.original)
     }
     return (
-      <div className="App Screen-Start" style={customStyling} onClick={this.onBlur.bind(this)}>
+      <div className="App Screen-Start" style={customStyling}>
         <header>
           <Search updateSelectedShow={this.updateSelectedShow} />
         </header>

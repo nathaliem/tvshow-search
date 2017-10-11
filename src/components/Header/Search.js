@@ -16,7 +16,7 @@ class Search extends Component {
     }
 
     getListOfShows(keywords = '') {
-        fetch('http://api.tvmaze.com/search/shows?q=' + keywords).then(response => response.json())
+        fetch('https://api.tvmaze.com/search/shows?q=' + keywords).then(response => response.json())
             .then(data => {
                 this.setState({shows: data});
             });
