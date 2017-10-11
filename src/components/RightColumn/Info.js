@@ -22,8 +22,11 @@ class Info extends Component {
             );
         }
         if ( info_obj.premiered ) {
+            const date = new Date(info_obj.premiered);
+            const date_formatted = date.getDate() + '/' + (('0' + (date.getMonth() + 1)).slice(-2)) + '/' + date.getFullYear();
+
             premiered = (
-                <li><h2>Premiere date</h2>{info_obj.premiered}</li>
+                <li><h2>Premiere date</h2>{date_formatted}</li>
             );
         }
         if ( info_obj.runtime ) {
