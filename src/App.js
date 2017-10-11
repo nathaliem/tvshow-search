@@ -39,7 +39,7 @@ class App extends Component {
 
   getShowInformation() {
     const id = this.state.selectedShowId;
-    fetch('http://api.tvmaze.com/lookup/shows?thetvdb=' + id).then(response => response.json())
+    fetch('https://api.tvmaze.com/lookup/shows?thetvdb=' + id).then(response => response.json())
             .then(data => {
               this.setState({selectedShowInfo: data});
             });
@@ -51,11 +51,15 @@ class App extends Component {
     }
   }
 
+  convertToHttps(string) {
+      return string.replace('http:', 'https:');
+  }
+
   render() {
     let main_content, poster, rating, customStyling = null;
     if ( this.state.selectedShowInfo ) {
       if ( this.state.selectedShowInfo.image.medium ) {
-        poster = <Poster selectedShowImage={this.state.selectedShowInfo.image.medium} selectedShowName={this.state.selectedShowInfo.name} />
+        poster = <Poster selectedShowImage={this.convertToHttps(this.state.selectedShowInfo.image.medium)} selectedShowName={this.state.selectedShowInfo.name} />
       }
       if ( this.state.selectedShowInfo.rating.average ) {
         rating = <Rating selectedShowRating={this.state.selectedShowInfo.rating.average} />
@@ -74,7 +78,7 @@ class App extends Component {
     }
     if ( this.state.selectedShowInfo && this.state.selectedShowInfo.image.original ) {
       customStyling = {
-        backgroundImage: 'url(' + this.state.selectedShowInfo.image.original + ')',
+        backgroundImage: 'url(' + this.convertToHttps(this.state.selectedShowInfo.image.original) + ')',
         backgroundSize: 'cover',
         backgroundPosition: 'center center'
       }

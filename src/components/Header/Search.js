@@ -50,13 +50,17 @@ class Search extends Component {
         document.querySelector('.list-of-shows').classList.remove('show');
     }
 
+    convertToHttps(string) {
+        return string.replace('http:', 'https:');
+    }
+
     render() {
         const shows = this.state.shows.filter(function(item){
             return item.show.image && item.show.externals.thetvdb;
         }).map((item, i) => (
             <div className="show--item" key={item.show.id}>
                 <a href="select" onClick={this.onSelect.bind(this, item.show.externals.thetvdb)}><span>Click</span></a>
-                <img src={ item.show.image.medium } alt={ item.show.name } />
+                <img src={ this.convertToHttps(item.show.image.medium) } alt={ item.show.name } />
                 <span>{ item.show.name }</span>
             </div>
         ));
