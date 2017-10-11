@@ -64,3 +64,13 @@ article {
   padding: 2em;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 860px) {
+  main {
+    display: block;
+  }
+  aside,
+  article {
+    width: 100%;
+  }
+}

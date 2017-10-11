@@ -61,3 +61,13 @@ input[type="search"] {
 .list-of-shows.show {
     display: block;
 }
+
+@media screen and (max-width:1024px) {
+    input[type="search"] {
+        width: 90%;
+    }
+
+    .list-of-shows {
+        max-width: 90%;
+    }
+}
