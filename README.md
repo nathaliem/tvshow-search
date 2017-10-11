@@ -1,3 +1,3 @@
 # TV Show Search
 
-WIP
+Searchable TV show API (tvmaze.com), built with React.
