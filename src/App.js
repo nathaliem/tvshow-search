@@ -41,12 +41,11 @@ class App extends Component {
     const $this = this;
     const id = $this.state.selectedShowId;
     const url = 'https://api.tvmaze.com/';
-    fetch(url + 'lookup/shows?thetvdb=' + id).then(function(response) {
+    fetch(url + 'lookup/shows?thetvdb=' + id).then(response => {
         const response_url = $this.convertToHttps(response.url);
         return fetch(response_url);
-      }).then(function(response){
-        return response.json();
-      }).then(data => {
+      }).then(response => response.json())
+        .then(data => {
         this.setState({
           selectedShowInfo: data
         })
