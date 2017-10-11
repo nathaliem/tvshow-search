@@ -5,7 +5,7 @@ class Info extends Component {
 
     render() {
         const info_obj = this.props.selectedShowInfo;
-        let genres, network, officialSite, premiered, runtime, status, summary = null;
+        let genres, network, officialSite, premiered, runtime, status = null;
         if ( info_obj.genres ) {
             genres = info_obj.genres.map((item, i) => (
                 <li key={i}>{item}</li>
